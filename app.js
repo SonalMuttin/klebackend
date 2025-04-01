@@ -15,13 +15,14 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/kleecom')
+
+let MONGODB_URL='mongodb+srv://muttinsonal:55GjGdgzQfk1Imn6@cluster0.c8mh26y.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(MONGODB_URL)
 .then(()=>{
     console.log('db connected');
 }).catch((err)=>{
     console.log('db is not connected',err)
 })
-
 //task-1 -> create a register route
 app.post('/register',async(req,res)=>{
     try{
